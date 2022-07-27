@@ -1,7 +1,7 @@
 from django.urls import path
 # from .views import UserList, UserDetail, PostList, PostDetail
 
-from .views import UserViewSet, PostViewSet
+from .views import UserViewSet, PostViewSet, CommentViewSet, LikeViewSet
 from rest_framework.routers import SimpleRouter
 
 # urlpatterns = [
@@ -12,6 +12,8 @@ from rest_framework.routers import SimpleRouter
 # ]
 
 router = SimpleRouter()
+router.register('comments', CommentViewSet, basename='comments')
+router.register('likes', LikeViewSet, basename='likes')
 router.register('users', UserViewSet, basename='users')
 router.register('', PostViewSet, basename='posts')
 
